@@ -8,7 +8,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 function Item({ navigation, route }) { 
     
     const [item, setItem] = useState({}); 
-    const {Operacao, setOperacao} = route.params;
+    const {operacao, setOperacao} = route.params;
 
     useEffect(() => {
         setItem(route.params.item); 

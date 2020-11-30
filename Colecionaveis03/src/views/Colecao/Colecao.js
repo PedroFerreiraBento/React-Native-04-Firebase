@@ -45,23 +45,30 @@ function Colecao({ navigation }) {
     const voltar = () => {
         navigation.navigate('Inicial')
     }
+    const adicionar = () => {
+        navigation.navigate('Item', {item: {}, operacao: 'adicionar' }) 
+    }
+    const editar = (item) => {
+        navigation.navigate('Item', {item: item, operacao: 'editar' }) 
+    }
     
     return (
         <View style={estiloColecao.container}>
 
-            <View style={estiloColecao.header}>
-                <TouchableOpacity onPress={voltar}>
-                    <MaterialIcons name="arrow-back" size={24} color="white" />
-                </TouchableOpacity>
-                <Text style={estiloColecao.texto}>Coleção</Text>
-                <MaterialIcons name="add" size={24} color="white" />
-            </View>
-
+            <View style={estiloColecao.header}> 
+                <TouchableOpacity onPress={voltar}> 
+                    <MaterialIcons name="arrow-back" size={24} color="white" /> 
+                </TouchableOpacity> 
+                <Text style={estiloColecao.texto}>Colecao</Text> <TouchableOpacity onPress={adicionar}> 
+                    <MaterialIcons name="add" size={24} color="white" /> 
+                </TouchableOpacity> 
+            </View> 
             <FlatList 
-                showsHorizontalScrollIndicator={false}
-                keyExtractor={(item) => item.id}
-                data={colecao}
-                renderItem={ ({item}) => <ItemLista data={item} />}
+                showsHorizontalScrolllndicator={false} 
+                keyExtractor={(item) => item.id} 
+                data={colecao} 
+                renderItem={({item}) => 
+                    <ItemLista data={item} detalhe={()=>editar(item)}/>}
             />
 
         </View>

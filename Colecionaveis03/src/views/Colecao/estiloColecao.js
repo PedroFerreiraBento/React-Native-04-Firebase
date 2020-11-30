@@ -3,6 +3,8 @@ import { StyleSheet } from 'react-native';
 const estiloColecao = StyleSheet.create({
    container: {   
       flex: 1,
+      backgroundColor: '#14417b',
+
    },
    header: {
       height: 50,
